@@ -1,38 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🐦 Flappy Clone
 
-## Getting Started
+<div align="center">
+  <img src="screenchot/gambar.png" alt="Main Menu Flappy Clone" width="800"/>
+  
+  <br />
+  
+  <img src="https://img.shields.io/badge/Status-Completed-success" alt="Status" />
+  <img src="https://img.shields.io/badge/License-MIT-blue" alt="License" />
+  <img src="https://img.shields.io/badge/Version-1.0.0-orange" alt="Version" />
+</div>
 
-First, run the development server:
+<br />
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📖 Tentang Proyek
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Flappy Clone** adalah sebuah proyek game arcade 2D kasual yang dibuat sebagai tribute (penghormatan) untuk game legendaris *Flappy Bird*. Proyek ini dikembangkan dengan fokus pada mekanik fisika sederhana (gravitasi dan lompatan), deteksi tabrakan (*collision detection*), serta manajemen UI (User Interface) yang interaktif. 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Tujuan utama dari repository ini adalah sebagai bahan pembelajaran, portofolio pengembangan game, dan template yang bisa dikembangkan lebih lanjut oleh komunitas open-source.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📑 Daftar Isi
+- [Fitur Game](#-fitur-game)
+- [Mekanik & Kontrol](#-mekanik--kontrol)
+- [Struktur Folder](#-struktur-folder)
+- [Cara Instalasi & Menjalankan Game](#-cara-instalasi--menjalankan-game)
+- [Teknologi yang Digunakan](#-teknologi-yang-digunakan)
+- [Rencana Pengembangan (Roadmap)](#-rencana-pengembangan-roadmap)
+- [Cara Berkontribusi](#-cara-berkontribusi)
+- [Lisensi & Kredit](#-lisensi--kredit)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Fitur Game
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Game ini telah dikembangkan dengan berbagai fitur kustomisasi untuk meningkatkan pengalaman bermain:
 
-## Deploy on Vercel
+### 1. Sistem Tema Peta (Map Themes)
+Pemain dapat mengubah suasana visual game sebelum mulai bermain:
+* ☁️ **Classic:** Tampilan siang hari dengan langit biru cerah, awan, dan nuansa nostalgia.
+* 🌙 **Night:** Tampilan malam hari yang gelap, menuntut fokus ekstra pada rintangan.
+* 🏜️ **Desert:** Tampilan gurun pasir dengan palet warna hangat dan tanah gersang.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 2. Tingkat Kesulitan Dinamis (Difficulty Levels)
+Terdapat 3 mode yang memengaruhi kecepatan rintangan dan jarak antar pipa:
+* 🟢 **EASY:** Celah rintangan sangat lebar dan kecepatan permainan lebih lambat. Sangat direkomendasikan untuk pemula.
+* 🟠 **NORMAL:** Kecepatan dan celah rintangan standar, meniru tingkat kesulitan game aslinya.
+* 🔴 **HARD:** Celah rintangan sangat sempit dan kecepatan permainan lebih tinggi. Menguji refleks maksimal pemain.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-"# Flappy_Bird.Game" 
-"# Flappy_Bird.Game" 
+### 3. Fitur Tambahan
+* 🏆 **Sistem Skor & High Score:** Menyimpan rekor skor tertinggi pemain (menggunakan *Local Storage / Save File*).
+* 🎨 **Pixel/Vector Art Style:** Menggunakan grafis 2D yang bersih dan memanjakan mata.
+
+---
+
+## 🎮 Mekanik & Kontrol
+
+**Tujuan Game:** Terbang sejauh mungkin melewati celah di antara pipa-pipa tanpa menyentuhnya atau jatuh ke tanah.
+
+**Kontrol (Mendukung Multi-Input):**
+* **Keyboard:** Tekan `[Spasi]` atau `[Panah Atas]` untuk mengepakkan sayap.
+* **Mouse:** `[Klik Kiri]` pada area game untuk mengepakkan sayap.
+* **Touch (Mobile):** Ketuk layar di mana saja (jika dimainkan di perangkat sentuh).
+
+---
+
+## 📁 Struktur Folder
+
+*(Catatan: Sesuaikan struktur folder ini dengan proyek asli Anda)*
+
+```text
+📦 flappy-clone
+ ┣ 📂 assets/
+ ┃ ┣ 📂 images/       # Sprite burung, background, pipa, UI
+ ┃ ┣ 📂 sounds/       # Efek suara (lompat, skor, tabrakan)
+ ┃ ┗ 📂 fonts/        # Font retro/pixel yang digunakan di UI
+ ┣ 📂 src/
+ ┃ ┣ 📜 main.js       # Logika utama game (Game Loop)
+ ┃ ┣ 📜 player.js     # Logika fisika burung (gravitasi, lompatan)
+ ┃ ┣ 📜 obstacle.js   # Pembuat (spawner) rintangan pipa
+ ┃ ┗ 📜 ui.js         # Pengatur menu, skor, dan tombol
+ ┣ 📜 index.html      # Halaman utama game
+ ┣ 📜 style.css       # Styling untuk container game
+ ┗ 📜 README.md       # Dokumentasi proyek
