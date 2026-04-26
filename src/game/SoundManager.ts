@@ -42,10 +42,10 @@ export class SoundManager {
     const osc = this.ctx.createOscillator();
     const gain = this.ctx.createGain();
     
-    // Retro coin/point sound (two rapid beeps)
+   
     osc.type = 'square';
-    osc.frequency.setValueAtTime(880, this.ctx.currentTime); // A5
-    osc.frequency.setValueAtTime(1318.51, this.ctx.currentTime + 0.08); // E6
+    osc.frequency.setValueAtTime(880, this.ctx.currentTime); 
+    osc.frequency.setValueAtTime(1318.51, this.ctx.currentTime + 0.08); 
     
     gain.gain.setValueAtTime(0.1, this.ctx.currentTime);
     gain.gain.setTargetAtTime(0, this.ctx.currentTime + 0.1, 0.05);
@@ -62,7 +62,7 @@ export class SoundManager {
     const osc = this.ctx.createOscillator();
     const gain = this.ctx.createGain();
     
-    // Retro hit sound (frequency drops rapidly)
+    
     osc.type = 'sawtooth';
     osc.frequency.setValueAtTime(150, this.ctx.currentTime);
     osc.frequency.exponentialRampToValueAtTime(40, this.ctx.currentTime + 0.3);

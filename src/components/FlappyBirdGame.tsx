@@ -16,9 +16,7 @@ export default function FlappyBirdGame() {
     if (!canvasRef.current) return;
     
     try {
-      // Fixed vertical resolution viewport strategy (like Flame's FixedVerticalResolution)
-    // The height is ALWAYS 600 logical pixels.
-    // The width expands or shrinks to match the physical window aspect ratio.
+     
     const updateSize = () => {
       const targetHeight = 600;
       const screenWidth = window.innerWidth;
@@ -66,7 +64,7 @@ export default function FlappyBirdGame() {
   }, []);
 
   const handlePointerDown = (e: React.PointerEvent | React.TouchEvent) => {
-    if (e.cancelable) e.preventDefault(); // prevent scrolling
+    if (e.cancelable) e.preventDefault(); 
     engine?.onTap();
   };
 
