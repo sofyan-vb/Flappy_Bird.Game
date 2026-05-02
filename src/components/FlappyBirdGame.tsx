@@ -63,6 +63,22 @@ export default function FlappyBirdGame() {
     }
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const allowedKeys = ['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
+      if (allowedKeys.includes(e.code)) {
+        e.preventDefault();
+        engine?.onTap();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [engine]);
+
   const handlePointerDown = (e: React.PointerEvent | React.TouchEvent) => {
     if (e.cancelable) e.preventDefault(); 
     engine?.onTap();
